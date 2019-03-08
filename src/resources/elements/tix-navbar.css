@@ -1,4 +1,5 @@
 .tix-navbar {
+  width: 100%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -8,19 +9,20 @@
     display: flex;
     padding: 0;
     flex-direction: row;
+    flex-wrap: wrap;
     list-style-type: none;
-    justify-content: space-around;
+    justify-content: flex-start;
+    width: 100%;
   }
 
     .tix-navbar__items.is-mobile {
-      display: flex;
-      visibility: visible;
-      opacity: 0;
+      display: none;
       flex-direction: column;
       width: 100%;
     }
 
     .tix-navbar__items.is-mobile.is-open {
+      display: flex;
       visibility: visible;
       opacity: 1;
       transition: visibility 0.7s ease-in;
@@ -36,6 +38,9 @@
       color: var(--item-foreground);
       background-color: var(--item-color);
       border: var(--item-border);
+      margin: 1em;
+      padding: 0.5em 0.5em;
+      height: 15px;
     }
 
     .tix-navbar__item.is-active {
@@ -45,7 +50,7 @@
     
   .tix-navbar__items.is-mobile 
   .tix-navbar__item {
-    margin: 1em;
+    margin: 0.2em;
     padding: 0.5em 0.5em;
     height: 15px;
     width: 90%;
