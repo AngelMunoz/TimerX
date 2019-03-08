@@ -1,0 +1,27 @@
+<template class="tix-navbar">
+  <require from="./tix-navbar.css"></require>
+  <button
+    class="tix-navbar__menu"
+    click.delegate="toggleMenu()"
+  >
+    <tix-icon name.bind="isOpen ? 'clear' : 'menu'"></tix-icon>
+  </button>
+  <ul class="tix-navbar__items">
+    <li
+      repeat.for="nav of router.navigation"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo(nav)"
+    >
+      <a>${nav.title}</a>
+    </li>
+  </ul>
+  <ul class="tix-navbar__items is-mobile ${ isOpen ? 'is-open' : '' }">
+    <li
+      repeat.for="nav of router.navigation"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo(nav)"
+    >
+      <a>${nav.title}</a>
+    </li>
+  </ul>
+</template>

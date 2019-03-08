@@ -1,0 +1,22 @@
+:root {
+  --primary-color: white;
+  --secondary-color: #333333;
+  --primary-foreground: var(--secondary-color);
+  --accent-color: teal;
+  --accent-foreground: white;
+
+  --primary-border-color: var(--secondary-color);
+  --primary-border-styl: inset;
+  --primary-border-width: 2px;
+  --primary-border: 
+    var(--primary-border-width)
+    var(--primary-border-color)
+    var(--primary-border-styl);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

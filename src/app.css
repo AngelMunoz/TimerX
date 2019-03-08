@@ -1,0 +1,24 @@
+.tix-app {
+  display: grid;
+  grid-template-rows: minmax(60px, 10vh) 80vh minmax(60px, 10vh);
+  grid-template-areas: 
+  'header'
+  'main'
+  'footer';
+}
+
+.tix-header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+}
+
+.tix-main {
+  grid-area: main;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.tix-footer {
+  grid-area: footer;
+}
