@@ -4,7 +4,7 @@ import { PLATFORM } from 'aurelia-pal';
 export const ROUTES: RouteConfig[] = [
   {
     title: 'Home', name: 'home', route: ['', 'home'],
-    settings: { auth: false }, nav: false,
+    settings: { auth: false }, nav: true,
     moduleId: PLATFORM.moduleName('./pages/home'),
   },
   {
