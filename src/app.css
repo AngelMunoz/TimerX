@@ -1,17 +1,22 @@
 .tix-app {
   display: grid;
-  grid-template-rows: minmax(60px, 10vh) 80vh minmax(60px, 10vh);
-  grid-template-areas: 
-  'header'
-  'main'
-  'footer';
+  grid-template: 
+  'header' minmax(60px, 10vh)
+  'main' 80vh
+  'footer' minmax(60px, 10vh) / 100%;
+  gap: 1em;
 }
 
 .tix-header {
   grid-area: header;
   position: sticky;
   top: 0;
+  height: 100%;
+  max-height: 45px;
 }
+  .tix-header tix-navbar {
+    max-height: 45px;
+  }
 
 .tix-main {
   grid-area: main;

@@ -12,11 +12,56 @@
     var(--primary-border-width)
     var(--primary-border-color)
     var(--primary-border-styl);
+
+  /* Accordion  */
+  --tix-accordion-item__header-color: var(--primary-color);
+  --tix-accordion-item__header-foreground: var(--primary-foreground);
+
+  --tix-accordion-item__header-active-color: var(--primary-color);
+  --tix-accordion-item__header-active-foreground: var(--accent-color);
+
+  --tix-accordion-item__border: var(--primary-border);
+
+  /* Tix Navbar */
+  --item-color:  var(--primary-color);
+  --item-foreground: var(--primary-foreground);
+  --item-color-active: var(--accent-color);
+  --item-foreground-active: var(--accent-foreground);
+  --item-border: var(--primary-border);
+  --tix-navbar__menu-bg-color: var(--primary-color);
+  --tix-navbar__menu-border: var(--primary-border);
+
+  /* Tix Toolbar */
+  --tix-toolbar-color: var(--primary-color);
+  --tix-toolbar-foreground: var(--primary-foreground);
+  --tix-toolbar-border: var(--primary-border);
+  --tix-toolbar-height: 100%;
+  --tix-toolbar-width: auto;
+
+  /* General Items */
+  --tix-input-border: var(--primary-border);
+  --tix-button-border: var(--primary-border);
+  --tix-anchor-foreground: var(--primary-foreground);
 }
 
 html, body {
+  background-color: var(--primary-color);
+  color: var(--primary-foreground);
+  font-family: 'Share Tech Mono';
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+button, input, select {
+  background: var(--primary-color);
+  color: var(--primary-foreground);
+  border: var(--primary-border);
+}
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--item-foreground)
 }
