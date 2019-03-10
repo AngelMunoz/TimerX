@@ -1,0 +1,12 @@
+<template class="tix-toolbar">
+  <require from="./tix-toolbar.css"></require>
+  <aside class="tix-toolbar__primary">
+    <slot name="primary"></slot>
+  </aside>
+  <section class="tix-toolbar__center">
+    <slot></slot>
+  </section>
+  <aside class="tix-toolbar__secondary">
+    <slot name="secondary"></slot>
+  </aside>
+</template>

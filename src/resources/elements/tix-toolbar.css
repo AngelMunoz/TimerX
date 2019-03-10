@@ -1,0 +1,41 @@
+.tix-toolbar {
+  height: var(--tix-toolbar-height);
+  width: var(--tix-toolbar-width);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--tix-toolbar-foreground);
+  background-color: var(--tix-toolbar-color);
+  border: var(--tix-toolbar-border);
+}
+
+  .tix-toolbar__primary {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .tix-toolbar__primary [slot="primary"] {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .tix-toolbar__center {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 3;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tix-toolbar__secondary {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }

@@ -1,0 +1,13 @@
+<template class="tix-accordion-item">
+  <require from="./tix-accordion-item.css"></require>
+  <header
+    class="tix-accordion-item__header ${ isOpen ? 'is-active' : '' }"
+    click.delegate="toggleSection()"
+  >
+    <slot name="header"></slot>
+    <tix-icon name.bind="isOpen ? 'expand_less' : 'expand_more'"></tix-icon>
+  </header>
+  <section class="tix-accordion-item__section ${ isOpen ? 'is-open' : '' }">
+    <slot></slot>
+  </section>
+</template>

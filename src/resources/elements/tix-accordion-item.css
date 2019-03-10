@@ -1,0 +1,40 @@
+.tix-accordion-item {
+  
+}
+
+  .tix-accordion-item__header {
+    font-size: 12px;
+    padding: 0 1em;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 1em;
+    color: var(--tix-accordion-item__header-foreground);
+    background-color: var(--tix-accordion-item__header-color);
+    border: var(--tix-accordion-item__border);
+    align-items: center;
+  }
+
+  .tix-accordion-item__header.is-active {
+    color: var(--tix-accordion-item__header-active-foreground);
+    background-color: var(--tix-accordion-item__header-active-color);
+  }
+
+  .tix-accordion-item__section {
+    display: none;
+    visibility: collapse;
+    margin: 1em 2em;
+    padding: 1em;
+    margin-right: 1em;
+    padding-right: 2em;
+    border: var(--tix-accordion-item__border);
+  }
+
+  .tix-accordion-item__section.is-open {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    visibility: visible;
+  }
