@@ -1,6 +1,6 @@
 
 export interface IBaseOptions {
-  id: string;
+  id?: string;
   createdAt?: number | Date;
   updatedAt?: number | Date;
 }
@@ -9,7 +9,7 @@ export interface ISortable {
   [key: string]: 'ASC' | 'DESC'
 }
 
-export interface IBasePagination {
+export interface IPaginable {
   page: number;
   limit: number;
 }

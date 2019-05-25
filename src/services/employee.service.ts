@@ -1,9 +1,9 @@
 import { IBaseService } from "./base.service";
-import { Employee } from "models";
+import { Employee, IPaginable, ISortable } from "models";
 
 export class EmployeeService implements IBaseService<Employee> {
 
-  find(where?: Readonly<Employee>, pagination?: import("../models").IBasePagination, sort?: import("../models").ISortable | import("../models").ISortable[]): Promise<Employee[]> {
+  find(where?: Readonly<Employee>, pagination?: IPaginable, sort?: ISortable | ISortable[]): Promise<Employee[]> {
     throw new Error("Method not implemented.");
   }
 

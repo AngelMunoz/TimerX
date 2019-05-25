@@ -8,7 +8,7 @@ export interface IUserOptions extends IBaseOptions {
 }
 
 export class User implements IBaseOptions {
-  id: string;
+  id?: string;
   createdAt?: number | Date;
   updatedAt?: number | Date;
 
@@ -25,6 +25,6 @@ export class User implements IBaseOptions {
   }
 }
 
-export interface IInsecureUser extends User {
+export interface IInsecureUser extends IUserOptions {
   password: string;
 }

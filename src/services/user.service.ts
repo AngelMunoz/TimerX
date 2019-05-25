@@ -1,9 +1,9 @@
 import { IBaseService } from "./base.service";
-import { User, IBasePagination, ISortable } from "models";
+import { User, IPaginable, ISortable, IUserOptions } from "models";
 
 export class UserService implements IBaseService<User> {
 
-  find(where?: Readonly<User>, pagination?: IBasePagination, sort?: ISortable | ISortable[]): Promise<User[]> {
+  find(where?: Readonly<User>, pagination?: IPaginable, sort?: ISortable | ISortable[]): Promise<User[]> {
     throw new Error("Method not implemented.");
   }
 
@@ -20,6 +20,14 @@ export class UserService implements IBaseService<User> {
   }
 
   destroy(id: string): Promise<boolean> {
+    throw new Error("Method not implemented.");
+  }
+
+  get activeuser(): IUserOptions {
+    throw new Error("Method not implemented.");
+  }
+
+  set activeuser(user: IUserOptions) {
     throw new Error("Method not implemented.");
   }
 }

@@ -1,3 +1,4 @@
 export * from './base.interface';
-export * from './User';
-export * from './Employee';
+export * from './validable.interface';
+export * from './user.model';
+export * from './employee.model';

@@ -7,6 +7,8 @@ export function configure(config: FrameworkConfiguration) {
     PLATFORM.moduleName('./elements/tix-accordion'),
     PLATFORM.moduleName('./elements/tix-accordion-item'),
     PLATFORM.moduleName('./elements/tix-toolbar'),
+    PLATFORM.moduleName('./elements/tix-form'),
+    PLATFORM.moduleName('./elements/tix-form-field.html'),
 
     PLATFORM.moduleName('./value-converters/date-input')
   ]);
