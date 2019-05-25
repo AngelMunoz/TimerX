@@ -6,9 +6,9 @@ import { FireAuth } from 'fire.utils';
 export class App {
   router: Router;
   private _isAuthenticated = false;
-
+  unsubscribe: firebase.Unsubscribe;
   constructor() {
-    FireAuth.onAuthStateChanged(this.onAuthChanged.bind(this));
+    this.unsubscribe = FireAuth.onAuthStateChanged(this.onAuthChanged.bind(this));
   }
 
   get isAuthenticated() {
@@ -17,6 +17,10 @@ export class App {
 
   onAuthChanged(user: firebase.User) {
     this._isAuthenticated = !!user;
+  }
+
+  deactivate() {
+    this.unsubscribe();
   }
 
   configureRouter(config: RouterConfiguration, router: Router): void {
