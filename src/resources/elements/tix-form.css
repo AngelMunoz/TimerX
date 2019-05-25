@@ -3,7 +3,7 @@
   padding: 0.5em;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   border: var(--tix-form__border);
 }
 

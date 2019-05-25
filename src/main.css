@@ -75,3 +75,7 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--item-foreground)
 }
+
+[data-cursor=pointer] {
+  cursor: pointer;
+}

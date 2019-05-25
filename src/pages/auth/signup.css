@@ -1,0 +1,9 @@
+.signup-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.signup-page tix-form {
+  min-width: 320px;
+  max-width: 650px;
+}

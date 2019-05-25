@@ -2,10 +2,11 @@
   margin: 0.5em;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .tix-form-field-label {
   margin-bottom: 0.5em;
+  align-self: flex-start;
   color: var(--tix-form-label-foreground);
 }

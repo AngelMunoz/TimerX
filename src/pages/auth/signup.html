@@ -1,3 +1,39 @@
 <template>
-  SignUp
+  <require from="./signup.css"></require>
+  <article class="signup-page">
+    <tix-form
+      form-name="signupForm"
+      form-title="Sign up"
+      submit-label="Sign up"
+      on-tix-form-submit.delegate="signup($event)"
+    >
+      <tix-form-field field-label="Email">
+        <input
+          type="email"
+          name="email"
+          value.bind="email"
+          required
+        >
+      </tix-form-field>
+      <tix-form-field field-label="Password">
+        <input
+          type="password"
+          name="password"
+          value.bind="password"
+          required
+        >
+      </tix-form-field>
+      <tix-form-field field-label="Confirm Your Password">
+        <input
+          type="password"
+          name="repeatedPassword"
+          value.bind="repeatedPassword"
+          required
+        >
+      </tix-form-field>
+      <tix-form-field class="horizontal-field">
+        <a route-href="login">Already have an account?</a>
+      </tix-form-field>
+    </tix-form>
+  </article>
 </template>

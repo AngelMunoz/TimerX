@@ -1,3 +1,32 @@
 <template>
-  Login
+  <require from="./login.css"></require>
+  <article class="login-page">
+    <tix-form
+      form-name="loginForm"
+      form-title="Sign in"
+      submit-label="Sign in"
+      on-tix-form-submit.delegate="login($event)"
+    >
+      <tix-form-field field-label="Email">
+        <input
+          type="email"
+          name="email"
+          value.bind="email"
+          required
+        >
+      </tix-form-field>
+      <tix-form-field field-label="Password">
+        <input
+          type="password"
+          name="password"
+          value.bind="password"
+          required
+        >
+      </tix-form-field>
+      <tix-form-field class="horizontal-field">
+        <a route-href="signup">Sign Up</a>
+        <a>Forgot password?</a>
+      </tix-form-field>
+    </tix-form>
+  </article>
 </template>
