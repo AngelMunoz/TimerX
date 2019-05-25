@@ -1,28 +1,40 @@
-import { User } from "models";
+import { autoinject } from 'aurelia-framework';
+import { Employee, IEmployeeOptions } from "models";
+import { UserService, EmployeeService } from 'services';
+import { camelCaseToWordsUppercase } from 'utils';
 
+@autoinject
 export class Home {
-  users: User[] = [
-    new User({
-      id: 'alv',
-      name: 'Namezin',
-      lastName: 'Apellidin',
-      email: 'namezin.apellidin@dominiesin.comesin'
-    }),
-    new User({
-      id: 'alv2',
-      name: 'Namezin2',
-      lastName: 'Apellidin2',
-      email: 'namezin2.apellidin2@dominiesin.comesin'
-    })
-  ];
-  currentUser: User;
+  employees: Employee[] = [];
+  selectedEmployee: Employee;
   currentDate = new Date();
+  newEmployee: IEmployeeOptions = {};
 
+  constructor(private $users: UserService, private $employees: EmployeeService) { }
 
-  selectUser(user: User) {
-    this.currentUser = user;
+  async activate() {
+    try {
+      this.employees = await this.$employees.find();
+    } catch (error) {
+      console.warn(error.message);
+      this.employees = [];
+    }
   }
-  clicked() {
-    console.log(this.currentDate)
+
+  selectEmployee(employee: Employee) {
+    this.selectedEmployee = employee;
+  }
+
+  async onAddEmployee(e: CustomEvent) {
+    const employee = new Employee(this.newEmployee);
+    if (!employee.isValid) {
+      // let user know we're missing inputs
+      console.log(employee.currentlyMissing.map(camelCaseToWordsUppercase));
+      return;
+    }
+    employee.belongsTo = this.$users.activeuser.id;
+    await this.$employees.create(employee);
+    this.employees = await this.$employees.find();
+    this.newEmployee = {};
   }
 }

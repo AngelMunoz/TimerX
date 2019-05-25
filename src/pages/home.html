@@ -2,18 +2,18 @@
   <require from="./home.css"></require>
   <article class="tix-home">
     <aside class="tix-home__left">
-      <ul class="tix-home__user-list">
+      <ul class="tix-home__employee-list">
         <li
-          class="tix-home__user-list__item ${currentUser.id === user.id ? 'is-active' : ''}"
-          repeat.for="user of users"
-          click.delegate="selectUser(user)"
-        >${user.fullName}</li>
+          class="tix-home__employee-list__item ${selectedEmployee.id === employee.id ? 'is-active' : ''}"
+          repeat.for="employee of employees"
+          click.delegate="selectEmployee(employee)"
+        >${employee.fullName}</li>
       </ul>
     </aside>
     <section class="tix-home__content">
       <tix-accordion>
-        <tix-accordion-item is-open.bind="currentUser.id">
-          <h1 slot="header">Capture Hours for ${currentUser.fullName}</h1>
+        <tix-accordion-item is-open.bind="selectedEmployee.id">
+          <h1 slot="header">Capture Hours for ${selectedEmployee.fullName}</h1>
           <form action="">
             <section>
               <label for="captureDate">Set Capture Date</label>
@@ -27,8 +27,41 @@
           </form>
         </tix-accordion-item>
         <tix-accordion-item>
-          <h1 slot="header">Quick User Add</h1>
-          userform
+          <h1 slot="header">Quick Add Employee</h1>
+          <tix-form
+            form-name="addEmployeeForm"
+            form-title="Add New Employee"
+            submit-label="Save Employee"
+            on-tix-form-submit.delegate="onAddEmployee($event)"
+          >
+            <tix-form-field field-label="Name">
+              <input
+                type="text"
+                name="name"
+                autocomplete="name"
+                value.bind="newEmployee.name"
+                required
+              >
+            </tix-form-field>
+            <tix-form-field field-label="Last Name">
+              <input
+                type="text"
+                name="lastName"
+                autocomplete="family-name"
+                value.bind="newEmployee.lastName"
+                required
+              >
+            </tix-form-field>
+            <tix-form-field field-label="Email">
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                value.bind="newEmployee.email"
+                required
+              >
+            </tix-form-field>
+          </tix-form>
         </tix-accordion-item>
       </tix-accordion>
     </section>
