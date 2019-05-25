@@ -1,8 +1,9 @@
 /// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
-import {Aurelia} from 'aurelia-framework'
+import { Aurelia } from 'aurelia-framework'
 import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
+import './fire.utils';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
 Bluebird.config({ warnings: { wForgottenReturn: false } });
