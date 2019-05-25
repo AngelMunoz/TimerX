@@ -1,0 +1,17 @@
+<template>
+  <require from="./tix-form.css"></require>
+  <form
+    class="tix-form"
+    name.bind="formName"
+    submit.trigger="onSubmit($event)"
+  >
+    <h3
+      if.bind="formTitle"
+      class="tix-form__title"
+    >${formTitle}</h3>
+    <slot></slot>
+    <tix-form-field>
+      <button type="submit">${submitLabel}</button>
+    </tix-form-field>
+  </form>
+</template>

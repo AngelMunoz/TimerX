@@ -8,20 +8,50 @@
   </button>
   <ul class="tix-navbar__items">
     <li
+      if.bind="authenticated"
       repeat.for="nav of router.navigation"
       class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
       click.delegate="navigateTo(nav)"
     >
       <a>${nav.title}</a>
     </li>
+    <li
+      if.bind="!authenticated"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo('login')"
+    >
+      <a>Sign in</a>
+    </li>
+    <li
+      if.bind="!authenticated"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo('signup')"
+    >
+      <a>Sign Up</a>
+    </li>
   </ul>
   <ul class="tix-navbar__items is-mobile ${ isOpen ? 'is-open' : '' }">
     <li
+      if.bind="authenticated"
       repeat.for="nav of router.navigation"
       class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
       click.delegate="navigateTo(nav)"
     >
       <a>${nav.title}</a>
+    </li>
+    <li
+      if.bind="!authenticated"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo('login')"
+    >
+      <a>Sign in</a>
+    </li>
+    <li
+      if.bind="!authenticated"
+      class="tix-navbar__item ${nav.isActive ? 'is-active' : ''}"
+      click.delegate="navigateTo('signup')"
+    >
+      <a>Sign Up</a>
     </li>
   </ul>
 </template>

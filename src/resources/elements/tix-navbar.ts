@@ -4,6 +4,7 @@ import { Router, NavModel } from 'aurelia-router';
 export class TixNavbar {
 
   @bindable({ defaultBindableMode: bindingMode.toView }) router: Router;
+  @bindable({ defaultBindableMode: bindingMode.toView }) authenticated: boolean = false;
 
   isOpen = false;
 
@@ -15,8 +16,12 @@ export class TixNavbar {
    * 
    * @param {NavModel} route 
    */
-  async navigateTo(route: NavModel) {
-    await this.router.navigateToRoute(route.config.name);
+  async navigateTo(route: NavModel | string) {
+    if ((route as NavModel).config) {
+      await this.router.navigateToRoute((route as NavModel).config.name);
+    } else {
+      await this.router.navigateToRoute(route as string);
+    }
     this.isOpen = false;
   }
 }

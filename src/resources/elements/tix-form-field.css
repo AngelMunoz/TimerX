@@ -1,0 +1,11 @@
+.tix-form-field {
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tix-form-field-label {
+  margin-bottom: 0.5em;
+  color: var(--tix-form-label-foreground);
+}

@@ -1,0 +1,10 @@
+<template bindable="fieldLabel">
+  <require from='./tix-form-field.css'></require>
+  <section class="tix-form-field">
+    <label
+      if.bind="fieldLabel"
+      class="tix-form-field-label"
+    >${fieldLabel}</label>
+    <slot></slot>
+  </section>
+</template>

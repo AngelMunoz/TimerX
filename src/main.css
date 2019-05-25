@@ -1,9 +1,13 @@
 :root {
-  --primary-color: white;
-  --secondary-color: #333333;
+  --selected-primary: #ffffff;
+  --selected-secondary: #333333;
+  --selected-accent: #008080;
+
+  --primary-color: var(--selected-primary);
+  --secondary-color: var(--selected-secondary);
   --primary-foreground: var(--secondary-color);
-  --accent-color: teal;
-  --accent-foreground: white;
+  --accent-color: var(--selected-accent);
+  --accent-foreground: var(--selected-primary);
 
   --primary-border-color: var(--secondary-color);
   --primary-border-styl: inset;
@@ -37,6 +41,12 @@
   --tix-toolbar-border: var(--primary-border);
   --tix-toolbar-height: 100%;
   --tix-toolbar-width: auto;
+
+  /* Tix Form */
+  --tix-form__border: var(--primary-border);
+
+  /* Tix Form Field */
+  --tix-form-label-foreground: var(--accent-color);
 
   /* General Items */
   --tix-input-border: var(--primary-border);

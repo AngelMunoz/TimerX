@@ -1,0 +1,13 @@
+.tix-form {
+  margin: 0.5em;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: var(--tix-form__border);
+}
+
+.tix-form__title {
+  align-self: center;
+  margin: 0.5em;
+}
