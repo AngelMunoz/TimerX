@@ -2,7 +2,10 @@
   <require from="./main.css"></require>
   <require from="./app.css"></require>
   <header class="tix-header">
-    <tix-navbar router.bind="router"></tix-navbar>
+    <tix-navbar
+      router.bind="router"
+      authenticated.bind="isAuthenticated"
+    ></tix-navbar>
   </header>
   <main class="tix-main">
     <router-view containerless></router-view>
