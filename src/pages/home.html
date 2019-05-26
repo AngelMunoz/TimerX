@@ -1,5 +1,6 @@
 <template>
   <require from="./home.css"></require>
+  <require from="./profile/tix-add-profile-form.html"></require>
   <article class="tix-home">
     <aside class="tix-home__left">
       <ul class="tix-home__employee-list">
@@ -28,40 +29,11 @@
         </tix-accordion-item>
         <tix-accordion-item>
           <h1 slot="header">Quick Add Employee</h1>
-          <tix-form
-            form-name="addEmployeeForm"
-            form-title="Add New Employee"
-            submit-label="Save Employee"
+          <tix-add-profile-form
             on-tix-form-submit.delegate="onAddEmployee($event)"
+            employee.two-way="newEmployee"
           >
-            <tix-form-field field-label="Name">
-              <input
-                type="text"
-                name="name"
-                autocomplete="name"
-                value.bind="newEmployee.name"
-                required
-              >
-            </tix-form-field>
-            <tix-form-field field-label="Last Name">
-              <input
-                type="text"
-                name="lastName"
-                autocomplete="family-name"
-                value.bind="newEmployee.lastName"
-                required
-              >
-            </tix-form-field>
-            <tix-form-field field-label="Email">
-              <input
-                type="email"
-                name="email"
-                autocomplete="email"
-                value.bind="newEmployee.email"
-                required
-              >
-            </tix-form-field>
-          </tix-form>
+          </tix-add-profile-form>
         </tix-accordion-item>
       </tix-accordion>
     </section>

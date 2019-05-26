@@ -1,0 +1,12 @@
+<template>
+  <require from="./profile/tix-add-profile-form.html"></require>
+  Account
+  <tix-accordion>
+    <tix-accordion-item is-open.bind="selectedEmployee.id">
+      <h1 slot="header">Main Account Information</h1>
+    </tix-accordion-item>
+    <tix-accordion-item>
+      <h1 slot="header">Profiles</h1>
+    </tix-accordion-item>
+  </tix-accordion>
+</template>

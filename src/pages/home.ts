@@ -1,7 +1,8 @@
 import { autoinject } from 'aurelia-framework';
 import { Employee, IEmployeeOptions } from "models";
-import { UserService, EmployeeService } from 'services';
+import { ProfileService, EmployeeService, AuthService, AccountService } from 'services';
 import { camelCaseToWordsUppercase } from 'utils';
+import { FireApp } from 'fire.utils';
 
 @autoinject
 export class Home {
@@ -10,7 +11,7 @@ export class Home {
   currentDate = new Date();
   newEmployee: IEmployeeOptions = {};
 
-  constructor(private $users: UserService, private $employees: EmployeeService) { }
+  constructor(private $profiles: ProfileService, private $employees: EmployeeService, private $account: AccountService) { }
 
   async activate() {
     try {
@@ -32,7 +33,8 @@ export class Home {
       console.log(employee.currentlyMissing.map(camelCaseToWordsUppercase));
       return;
     }
-    employee.belongsTo = this.$users.activeuser.id;
+    employee.belongsToProfile = this.$profiles.activeProfile.id;
+    employee.belongsToUser = (this.$account.currentUser as any).uid;
     await this.$employees.create(employee);
     this.employees = await this.$employees.find();
     this.newEmployee = {};

@@ -10,6 +10,6 @@ export interface ISortable {
 }
 
 export interface IPaginable {
-  page: number;
+  startKey: firebase.firestore.DocumentSnapshot;
   limit: number;
 }

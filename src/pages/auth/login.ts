@@ -1,6 +1,6 @@
-import { FireAuth } from 'fire.utils';
 import { autoinject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
+import { AuthService } from 'services';
 
 @autoinject
 export class Login {
@@ -9,10 +9,10 @@ export class Login {
   password: string;
   unsubscribe: firebase.Unsubscribe;
 
-  constructor(private router: Router) {
-    this.unsubscribe = FireAuth.onAuthStateChanged(user => {
+  constructor(private router: Router, private $auth: AuthService) {
+    this.unsubscribe = this.$auth.onAuthStateChanged(user => {
       if (user) {
-        router.navigateToRoute('home');
+        this.router.navigateToRoute('home');
       }
     });
   }
@@ -22,7 +22,7 @@ export class Login {
 
   async login() {
     try {
-      await FireAuth.signInWithEmailAndPassword(this.email, this.password)
+      await this.$auth.login(this.email, this.password);
     } catch (error) {
       console.warn(error.message);
       return;

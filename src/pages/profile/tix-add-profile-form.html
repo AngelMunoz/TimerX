@@ -1,0 +1,35 @@
+<template bindable="employee">
+  <tix-form
+    form-name="addEmployeeForm"
+    form-title="Add New Employee"
+    submit-label="Save Employee"
+  >
+    <tix-form-field field-label="Name">
+      <input
+        type="text"
+        name="name"
+        autocomplete="name"
+        value.bind="employee.name"
+        required
+      >
+    </tix-form-field>
+    <tix-form-field field-label="Last Name">
+      <input
+        type="text"
+        name="lastName"
+        autocomplete="family-name"
+        value.bind="employee.lastName"
+        required
+      >
+    </tix-form-field>
+    <tix-form-field field-label="Email">
+      <input
+        type="email"
+        name="email"
+        autocomplete="email"
+        value.bind="employee.email"
+        required
+      >
+    </tix-form-field>
+  </tix-form>
+</template>

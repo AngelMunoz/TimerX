@@ -1,5 +1,5 @@
 import { IBaseOptions } from "./base.interface";
-import { IUserOptions } from "./user.model";
+import { IProfileOptions } from "./profile.model";
 import { IValidable } from "./validable.interface";
 
 export interface IEmployeeOptions extends IBaseOptions {
@@ -7,7 +7,8 @@ export interface IEmployeeOptions extends IBaseOptions {
   lastName?: string;
   email?: string;
   // relationship
-  belongsTo?: string | IUserOptions;
+  belongsToProfile?: string;
+  belongsToUser?: string;
 }
 
 
@@ -21,9 +22,10 @@ export class Employee implements IBaseOptions, IValidable<IEmployeeOptions> {
   email: string;
 
   // relationships
-  belongsTo?: string | IUserOptions;
+  belongsToProfile?: string;
+  belongsToUser?: string;
 
-  constructor(options?: IUserOptions) {
+  constructor(options?: IEmployeeOptions) {
     Object.assign(this, options);
   }
 
@@ -35,11 +37,11 @@ export class Employee implements IBaseOptions, IValidable<IEmployeeOptions> {
     return this.requiredFields.every(key => !!this[key]);
   }
 
-  get requiredFields(): ("name" | "lastName" | "email" | "belongsTo" | "id" | "createdAt" | "updatedAt")[] {
+  get requiredFields(): (keyof IEmployeeOptions)[] {
     return ['email', 'name', 'lastName'];
   }
 
-  get currentlyMissing(): ("name" | "lastName" | "email" | "belongsTo" | "id" | "createdAt" | "updatedAt")[] {
+  get currentlyMissing(): (keyof IEmployeeOptions)[] {
     return this.requiredFields.filter(key => !this[key]);
   }
 }

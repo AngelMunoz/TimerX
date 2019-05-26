@@ -21,5 +21,10 @@ export const ROUTES: RouteConfig[] = [
     title: 'Summary', name: 'summary', route: 'summary',
     settings: { auth: true }, nav: true,
     moduleId: PLATFORM.moduleName('./pages/summary'),
+  },
+  {
+    title: 'Account', name: 'account', route: 'account',
+    settings: { auth: true }, nav: true,
+    moduleId: PLATFORM.moduleName('./pages/account'),
   }
 ];
